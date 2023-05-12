@@ -25,15 +25,6 @@ const items = [
 
     return(
             <li className="photo__box" id="element-li">
-                {/* <img 
-                    className="photo__image" 
-                    id="photo__image" 
-                    alt=""
-                    // src={props.link} 
-                    // alt={props.name} 
-                    // onClick={handleClick}
-                >
-                </img> */}
                 <AliceCarousel mouseTracking items={items} disableButtonsControls={true} />
                 <div className="photo__text-box">
                     <div className="photo__price-box">

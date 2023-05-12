@@ -19,10 +19,28 @@
     column-gap: 24px;
     row-gap: 24px;
 }
+
+.photos__container_active{
+    grid-template-columns: 1fr 1fr;
+}
+
 @media screen and (min-width: 320px) and (max-width: 900px){
     .photos__container{
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr  1fr 1fr  1fr 1fr;
         justify-items: center;
     }
+}
+
+.photos__button {
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.photos__button:hover {
+    color: rgba(0, 160, 171, 1);
 }
