@@ -22,12 +22,12 @@ function CardList() {
             <button className="photos__button" onClick={fourCards}><GridViewOutlinedIcon fontSize="large"></GridViewOutlinedIcon></button>
             <button className="photos__button" onClick={twoCards}><ViewStreamOutlinedIcon fontSize="large"></ViewStreamOutlinedIcon></button>
             <ul className={`photos__container ${!active ? 'photos__container_active' : ''}`}>
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                <Card active={active}/>
+                <Card active={active}/>
+                <Card active={active}/>
+                <Card active={active}/>
+                <Card active={active}/>
+                <Card active={active}/>
             </ul>
         </section>
     )
