@@ -1,0 +1,104 @@
+.photo__box{
+    display: flex;
+    flex-direction: column;
+    width: 224px;
+    background-color: rgba(232, 232, 232, 1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.08);
+}
+
+.photo__box:hover {
+    box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.31);
+}
+
+.photo__image{
+    width: 224px;
+    height: 260px;
+    object-fit: cover;
+    position: relative;
+}
+
+.photo__like{
+    background: url(../../images/like.svg);
+    background-repeat : no-repeat;
+    overflow: visible;
+    width: 22px;
+    height: 19px;
+    border: none;
+    padding: 0;
+}
+.photo__like:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+.photo__like_active{
+    background-image: url('../../images/Union.svg');
+}
+
+.photo__text {
+    font-family: Ubuntu;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin: 0;
+}
+
+.photo__text-box{
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.photo__price-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 15px 10px 12px;
+}
+
+.photo__header {
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;    
+    padding: 0px 12px 10px 12px;
+}
+
+.photo__city-box {
+    font-family: Ubuntu;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: right;
+    color: rgba(143, 143, 143, 1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0px 12px 19px 12px;
+}
+
+.alice-carousel__dots {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 84px;
+    bottom: 9px;
+}
+
+.alice-carousel__dots-item:not(.__custom):hover, .alice-carousel__dots-item:not(.__custom).__active {
+    background-color: rgba(0, 160, 171, 1);
+  }
+  
+  .alice-carousel__dots-item:not(.__custom) {
+    width: 8px;
+    height: 8px;
+    cursor: pointer;
+    background-color: rgba(199, 199, 199, 1);
+  }
