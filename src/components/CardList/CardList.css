@@ -39,8 +39,13 @@
     padding: 0;
     border: none;
     cursor: pointer;
+    color: rgba(199, 199, 199, 1);
+}
+
+.photos__button_active {
+    color: rgba(0, 160, 171, 1);
 }
 
 .photos__button:hover {
-    color: rgba(0, 160, 171, 1);
+    color: rgba(164, 164, 164, 1);
 }
