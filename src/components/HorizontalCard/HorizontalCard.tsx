@@ -4,22 +4,26 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import "./HorizontalCard.css";
 
 interface HorizontalCardProps {
-    items: JSX.Element[] | undefined;
+    pictures: JSX.Element[] | undefined;
     cardLikeButton: any;
     handleLikeClick: () => void;
+    id: number;
+    address: string;
+    title: string;
+    price: number;
 }
 
-const HorizontalCard: FC<HorizontalCardProps> = ({ items, cardLikeButton, handleLikeClick }) => {
+const HorizontalCard: FC<HorizontalCardProps> = ({ pictures, cardLikeButton, handleLikeClick, id, address, title, price }) => {
 
     return(
-            <li className="image__box" id="element-li">
+            <li className="image__box"  key={id}>
                 <div className="">
-                    <AliceCarousel mouseTracking items={items} disableButtonsControls={true} />
-                </div>
+                    <AliceCarousel mouseTracking items={pictures} disableButtonsControls={true} />
+                </div> 
                 <div className="image__text-box">
                     <div className="image__price-box">
                         <p className="image__text" id="image__text">
-                            0 000 ₽
+                           {price} ₽
                         </p>
                         <button 
                             className={cardLikeButton} 
@@ -29,10 +33,10 @@ const HorizontalCard: FC<HorizontalCardProps> = ({ items, cardLikeButton, handle
                         >     
                         </button>
                     </div>
-                    <h2 className="image__header">Название товарной позиции</h2>
+                    <h2 className="image__header">{title}</h2>
                     <div className="image__city-box">
                         <span>Город</span>
-                        <span>00.00.00, 00.00</span>
+                        <span>{address}</span>
                     </div>
                 </div>
             </li> 
