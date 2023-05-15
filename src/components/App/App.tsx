@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import CardList from '../CardList/CardList';
 import axios from 'axios'
+import NoData from '../NoData/NoData';
 
 export type Item = {
   id: number;
@@ -27,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      <CardList items={items}/>
+      {!items || items.length === 0 ? <NoData/> : <CardList items={items}/>}
     </div>
   );
 }

@@ -1,0 +1,23 @@
+.buttons {
+    margin: 35px 35px 0 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons__button {
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    color: rgba(199, 199, 199, 1);
+}
+
+.buttons__button_active {
+    color: rgba(0, 160, 171, 1);
+}
+
+.buttons__button:hover {
+    color: rgba(164, 164, 164, 1);
+}

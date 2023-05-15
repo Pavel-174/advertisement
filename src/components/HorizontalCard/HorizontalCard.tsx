@@ -11,15 +11,19 @@ interface HorizontalCardProps {
     address: string;
     title: string;
     price: number;
+    seen: boolean;
 }
 
-const HorizontalCard: FC<HorizontalCardProps> = ({ pictures, cardLikeButton, handleLikeClick, id, address, title, price }) => {
+const HorizontalCard: FC<HorizontalCardProps> = ({ pictures, cardLikeButton, handleLikeClick, id, address, title, price, seen }) => {
+
+    const cardSeenElementClassName = (
+        `image__seen ${seen ? 'image__seen_visible' : ''}`
+      );
 
     return(
             <li className="image__box"  key={id}>
-                <div className="">
-                    <AliceCarousel mouseTracking items={pictures} disableButtonsControls={true} />
-                </div> 
+                <AliceCarousel mouseTracking items={pictures} disableButtonsControls={true} />
+                <span className={cardSeenElementClassName}>Просмотренно</span>
                 <div className="image__text-box">
                     <div className="image__price-box">
                         <p className="image__text" id="image__text">

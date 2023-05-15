@@ -1,0 +1,23 @@
+.no-data__header {
+    margin: 209px auto 9px auto;
+    font-family: Ubuntu;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(0, 160, 171, 1);
+    max-width: 246px;
+}
+
+.no-data__text {
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(143, 143, 143, 1);
+    max-width: 246px;
+    margin: 0 auto;
+}

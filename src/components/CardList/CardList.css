@@ -1,7 +1,7 @@
 .photos{
     margin: 0 auto;
-    width: 880px;
-    padding: 92px 0 94px 0;
+    width: 968px;
+    padding: 26px 0 94px 0;
 }
 @media screen and (min-width: 320px) and (max-width: 900px){
     .photos{
@@ -30,22 +30,4 @@
         grid-template-rows: 1fr 1fr  1fr 1fr  1fr 1fr;
         justify-items: center;
     }
-}
-
-.photos__button {
-    background-color: white;
-    width: fit-content;
-    height: fit-content;
-    padding: 0;
-    border: none;
-    cursor: pointer;
-    color: rgba(199, 199, 199, 1);
-}
-
-.photos__button_active {
-    color: rgba(0, 160, 171, 1);
-}
-
-.photos__button:hover {
-    color: rgba(164, 164, 164, 1);
 }

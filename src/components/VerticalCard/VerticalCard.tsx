@@ -11,13 +11,19 @@ interface VerticalCardProps {
     address: string;
     title: string;
     price: number;
+    seen: boolean;
 }
 
-const VerticalCard: FC<VerticalCardProps> = ({ pictures, cardLikeButton, handleLikeClick, id, address, title, price }) => {
+const VerticalCard: FC<VerticalCardProps> = ({ pictures, cardLikeButton, handleLikeClick, id, address, title, price, seen}) => {
+
+    const cardSeenElementClassName = (
+        `photo__seen ${seen ? 'photo__seen_visible' : ''}`
+      );
 
     return(
             <li className="photo__box" key={id}>
                 <AliceCarousel mouseTracking items={pictures} disableButtonsControls={true} />
+                <span className={cardSeenElementClassName}>Просмотренно</span>
                 <div className="photo__text-box">
                     <div className="photo__price-box">
                         <p className="photo__text" id="photo__text">

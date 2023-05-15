@@ -8,6 +8,8 @@
     overflow: hidden;
     width: 472px;
     height: 134px;
+    position: relative;
+    cursor: pointer;
 }
 
 .image__box:hover {
@@ -85,6 +87,26 @@
     justify-content: space-between;
     align-items: baseline;
     padding: 0px 12px 19px 12px;
+}
+
+.image__seen{
+    display: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 11px;
+    left: 65px;
+    padding: 5px 8px;
+    border-radius: 8px;
+    font-family: Ubuntu;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.image__seen_visible {
+    display: block;
 }
 
 .alice-carousel__dots {
