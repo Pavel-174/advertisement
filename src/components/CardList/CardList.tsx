@@ -6,9 +6,10 @@ import { Item } from "../App/App";
 
 interface CardListProps {
     items: Item[];
+    onCardClick: (card: any) => void;
 }
 
-const CardList: FC<CardListProps> = ({items}) => {
+const CardList: FC<CardListProps> = ({items, onCardClick}) => {
 
     const [verticalCard, setVerticalCard] = React.useState(() => {
         const save: any = localStorage.getItem("verticalCard");
@@ -45,6 +46,8 @@ const CardList: FC<CardListProps> = ({items}) => {
                             title={card.title}
                             price={card.price}
                             seen={card.seen}
+                            onCardClick={onCardClick}
+                            card={card}
                         />
                     ))}
                 </ul>

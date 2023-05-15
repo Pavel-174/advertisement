@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import VerticalCard from "../VerticalCard/VerticalCard";
 import HorizontalCard from "../HorizontalCard/HorizontalCard";
+import { Item } from "../App/App";
 
 interface CardProps {
   verticalCard: boolean;
@@ -9,9 +10,11 @@ interface CardProps {
     title: string;
     price: number;
     seen: boolean;
+    onCardClick: any;
+    card: Item;
 }
 
-const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen}) => {
+const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen, onCardClick, card}) => {
 
   const [isLiked, setIsLiked] = React.useState(() => {
     const saved: any = localStorage.getItem("isLiked");
@@ -55,6 +58,10 @@ const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen}) =>
     />,
   ];
 
+  function handleClick() {
+    onCardClick(card);
+  }
+
     return(
         <div>
         {verticalCard ?         
@@ -67,6 +74,7 @@ const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen}) =>
                 title={title}
                 price={price}
                 seen={seen}
+                handleClick={handleClick}                
             /> :
             <HorizontalCard
                 pictures={pictures}
@@ -77,6 +85,7 @@ const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen}) =>
                 title={title}
                 price={price}
                 seen={seen}
+                handleClick={handleClick}
             />
         }
         </div>
