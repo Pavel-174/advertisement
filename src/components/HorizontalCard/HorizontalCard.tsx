@@ -14,10 +14,9 @@ interface HorizontalCardProps {
     price: number;
     seen: boolean;
     handleClick: () => void;
-    handleProceed: (event: any) => void;
 }
 
-const HorizontalCard: FC<HorizontalCardProps> = ({ pictures, cardLikeButton, handleLikeClick, id, address, title, price, seen, handleClick, handleProceed }) => {
+const HorizontalCard: FC<HorizontalCardProps> = ({ pictures, cardLikeButton, handleLikeClick, id, address, title, price, seen, handleClick }) => {
 
     const cardSeenElementClassName = (
         `image__seen ${seen ? 'image__seen_visible' : ''}`
@@ -40,9 +39,7 @@ const HorizontalCard: FC<HorizontalCardProps> = ({ pictures, cardLikeButton, han
                     >     
                     </button>
                 </div>
-                <Link to={`/ad/${id}`} onClick={handleProceed}>
-                    <h2 className="image__header">{title}</h2>
-                </Link>
+                <h2 className="image__header">{title}</h2>
                 <div className="image__city-box">
                     <span>Город</span>
                     <span>{address}</span>

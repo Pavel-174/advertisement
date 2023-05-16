@@ -15,7 +15,7 @@ export type Item = {
   title: string;
 }
 
-const baseURL = "https://testguru.ru/frontend-test/api/v1/items";
+const baseURL = "https://testguru.ru/frontend-test/api/v1/items?page=1";
 
 function App() {
 

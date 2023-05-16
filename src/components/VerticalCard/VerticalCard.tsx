@@ -14,10 +14,9 @@ interface VerticalCardProps {
     price: number;
     seen: boolean; 
     handleClick: () => void;
-    handleProceed: (event: any) => void;
 }
 
-const VerticalCard: FC<VerticalCardProps> = ({ pictures, cardLikeButton, handleLikeClick, id, address, title, price, seen, handleClick, handleProceed}) => {
+const VerticalCard: FC<VerticalCardProps> = ({ pictures, cardLikeButton, handleLikeClick, id, address, title, price, seen, handleClick}) => {
 
     const cardSeenElementClassName = (
         `photo__seen ${seen ? 'photo__seen_visible' : ''}`
@@ -41,9 +40,7 @@ const VerticalCard: FC<VerticalCardProps> = ({ pictures, cardLikeButton, handleL
                     >     
                     </button>
                 </div>
-                <Link to={`/ad/${id}`} onClick={handleProceed}>
-                    <h2 className="photo__header">{title}</h2>
-                </Link>
+                <h2 className="photo__header">{title}</h2>
                 <div className="photo__city-box">
                     <span>Город</span>
                     <span>{address}</span>
