@@ -44,10 +44,10 @@ function App() {
     <div className="App">
       <Routes>
         <Route 
-          path="/" 
+          path="/advertisement" 
           element = { !items || items.length === 0 ? <NoData/> : <CardList items={items} onCardClick={handleCardClick} handleProceed={handleProceed}/>} />
-        <Route path="/ad/:id" element={<Ad card={ selectedCard } />}></Route>
-        <Route path="*" element={ <NoData /> } /> 
+        <Route path="/advertisement/ad/:id" element={<Ad card={ selectedCard } />}></Route>
+        <Route path="/advertisement/*" element={ <NoData /> } /> 
       </Routes>
     </div>
   );

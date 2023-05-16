@@ -25,23 +25,22 @@ const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen, onC
   const items = [...likedItems];
 
   const handleLikeClick = () => {
-    const likedItems: any = localStorage.getItem("isLiked");
     !isLiked ? addToList() : deleteFromList();
   }
 
   const addToList = () => {
     items.push(id);
-    items.includes(id) ? null :  setLikedItems(items);
     setIsLiked(true);
-    localStorage.setItem("isLiked", JSON.stringify(items));
+    setLikedItems(items);
+    localStorage.setItem("items", JSON.stringify(items));
   }
-  
+
   const deleteFromList = () => {
     const index = items.indexOf(id);
-    index > -1 ? items.splice(index, 1) : null;
-    isLiked ? setLikedItems(items) : null;
+    index > -1 ? items.splice(index, 1) : ' ';
     setIsLiked(false);
-    localStorage.setItem("isLiked", JSON.stringify(items));
+    setLikedItems(items);
+    localStorage.setItem("items", JSON.stringify(items));
   }
 
   const cardLikeButton = (
@@ -49,15 +48,20 @@ const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen, onC
   );
 
   React.useEffect(() => {
-    const likedItems: any = localStorage.getItem("isLiked");
-    setLikedItems(JSON.parse(likedItems));
-    likedItems.includes(id) ? setIsLiked(true) :  setIsLiked(false)
-  });
+    try {
+      const likedItems: any = localStorage.getItem("items");
+      setLikedItems(JSON.parse(likedItems));
+      likedItems.includes(id) ? setIsLiked(true) : setIsLiked(false);
+    } catch (error) {
+      window.location.reload();
+      localStorage.setItem("items", JSON.stringify(items));
+    }
+  }, [id, items, likedItems]);
 
   const handleDragStart = (e: { preventDefault: () => any; }) => e.preventDefault();
 
   const pictures = [
-    <Link to={`/ad/${id}`}>
+    <Link to={`advertisement/ad/${id}`}>
       <img 
         src="https://sportishka.com/uploads/posts/2022-03/1646741068_35-sportishka-com-p-chelovek-na-fone-peizazha-turizm-krasivo-f-57.jpg" 
         alt="" 
@@ -66,7 +70,7 @@ const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen, onC
         className={verticalCard ? "photo__image" : "image__image"} 
       />
     </Link>,
-    <Link to={`/ad/${id}`}>
+    <Link to={`advertisement/ad/${id}`}>
       <img 
         src="https://klike.net/uploads/posts/2019-11/1574605225_22.jpg"     
         alt="" 
@@ -75,7 +79,7 @@ const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen, onC
         className={verticalCard ? "photo__image" : "image__image"} 
       />
     </Link>,
-    <Link to={`/ad/${id}`}>
+    <Link to={`advertisement/ad/${id}`}>
       <img 
         src="https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663367198_11-mykaleidoscope-ru-p-novosibirsk-stolitsa-sibiri-pinterest-11.jpg"  
         alt="" 
@@ -91,7 +95,7 @@ const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen, onC
   }
 
     return(
-        <div>
+        <div key={id}>
         {verticalCard ?         
             <VerticalCard
                 pictures={pictures}
