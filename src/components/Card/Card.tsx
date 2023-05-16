@@ -12,9 +12,10 @@ interface CardProps {
     seen: boolean;
     onCardClick: any;
     card: Item;
+    handleProceed: (event: any) => void;
 }
 
-const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen, onCardClick, card}) => {
+const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen, onCardClick, card, handleProceed}) => {
 
   const [isLiked, setIsLiked] = React.useState(() => {
     const saved: any = localStorage.getItem("isLiked");
@@ -39,13 +40,15 @@ const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen, onC
   const pictures = [
     <img 
       src="https://sportishka.com/uploads/posts/2022-03/1646741068_35-sportishka-com-p-chelovek-na-fone-peizazha-turizm-krasivo-f-57.jpg" 
-      alt="" onDragStart={handleDragStart} 
+      alt="" 
+      onDragStart={handleDragStart} 
       role="presentation" 
       className={verticalCard ? "photo__image" : "image__image"} 
     />,
     <img 
       src="https://klike.net/uploads/posts/2019-11/1574605225_22.jpg"     
-      alt="" onDragStart={handleDragStart}    
+      alt="" 
+      onDragStart={handleDragStart}    
       role="presentation"     
       className={verticalCard ? "photo__image" : "image__image"} 
     />,
@@ -74,7 +77,8 @@ const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen, onC
                 title={title}
                 price={price}
                 seen={seen}
-                handleClick={handleClick}                
+                handleClick={handleClick}
+                handleProceed={handleProceed}              
             /> :
             <HorizontalCard
                 pictures={pictures}
@@ -86,6 +90,7 @@ const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen, onC
                 price={price}
                 seen={seen}
                 handleClick={handleClick}
+                handleProceed={handleProceed}
             />
         }
         </div>

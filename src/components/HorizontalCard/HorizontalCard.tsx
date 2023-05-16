@@ -14,16 +14,17 @@ interface HorizontalCardProps {
     price: number;
     seen: boolean;
     handleClick: () => void;
+    handleProceed: (event: any) => void;
 }
 
-const HorizontalCard: FC<HorizontalCardProps> = ({ pictures, cardLikeButton, handleLikeClick, id, address, title, price, seen, handleClick }) => {
+const HorizontalCard: FC<HorizontalCardProps> = ({ pictures, cardLikeButton, handleLikeClick, id, address, title, price, seen, handleClick, handleProceed }) => {
 
     const cardSeenElementClassName = (
         `image__seen ${seen ? 'image__seen_visible' : ''}`
       );
 
     return(
-        <Link to='/id'>
+        <Link to={`/ad/:${id}`} onClick={handleProceed}>
             <li className="image__box"  key={id} onClick={handleClick}>
                 <AliceCarousel mouseTracking items={pictures} disableButtonsControls={true} />
                 <span className={cardSeenElementClassName}>Просмотренно</span>

@@ -7,9 +7,10 @@ import { Item } from "../App/App";
 interface CardListProps {
     items: Item[];
     onCardClick: (card: any) => void;
+    handleProceed: (event: any) => void;
 }
 
-const CardList: FC<CardListProps> = ({items, onCardClick}) => {
+const CardList: FC<CardListProps> = ({items, onCardClick, handleProceed}) => {
 
     const [verticalCard, setVerticalCard] = React.useState(() => {
         const save: any = localStorage.getItem("verticalCard");
@@ -48,6 +49,7 @@ const CardList: FC<CardListProps> = ({items, onCardClick}) => {
                             seen={card.seen}
                             onCardClick={onCardClick}
                             card={card}
+                            handleProceed={handleProceed}
                         />
                     ))}
                 </ul>
