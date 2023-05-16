@@ -22,7 +22,7 @@ function App() {
   const [items, setItems] = React.useState([]);
   const [selectedCard, setSelectedCard] = React.useState(null);
 
-  const [id, setId] = React. useState();
+  const [id, setId] = React.useState();
   const navigate = useNavigate();
 
   const handleProceed = (event: any) => {
@@ -44,10 +44,11 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={!items || items.length === 0 ? <NoData/> : <CardList items={items} onCardClick={handleCardClick} handleProceed={handleProceed}/>} />
-        <Route path="/ad/:id" element={<Ad card={selectedCard} />}></Route>
-        {/* сделать 404 */}
-        <Route path="*" element={<NoData />} /> 
+        <Route 
+          path="/" 
+          element = { !items || items.length === 0 ? <NoData/> : <CardList items={items} onCardClick={handleCardClick} handleProceed={handleProceed}/>} />
+        <Route path="/ad/:id" element={<Ad card={ selectedCard } />}></Route>
+        <Route path="*" element={ <NoData /> } /> 
       </Routes>
     </div>
   );

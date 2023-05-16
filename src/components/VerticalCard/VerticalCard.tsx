@@ -24,32 +24,32 @@ const VerticalCard: FC<VerticalCardProps> = ({ pictures, cardLikeButton, handleL
       );
 
     return(
-        <Link to={`/ad/:${id}`} onClick={handleProceed}>
-            <li className="photo__box" key={id} onClick={handleClick}>
-                <AliceCarousel mouseTracking items={pictures} disableButtonsControls={true} />
-                <span className={cardSeenElementClassName}>Просмотренно</span>
-                <div className="photo__text-box">
-                    <div className="photo__price-box">
-                        <p className="photo__text" id="photo__text">
-                            {price} ₽
-                        </p>
-                        <button 
-                            className={cardLikeButton} 
-                            type="button" 
-                            aria-label="кнопка лайк" 
-                            onClick={handleLikeClick}
-                        >     
-                        </button>
-                    </div>
-                    <h2 className="photo__header">{title}</h2>
-                    <div className="photo__city-box">
-                        <span>Город</span>
-                        <span>{address}</span>
-                    </div>
-
+        
+        <li className="photo__box" key={id} onClick={handleClick}>
+            <AliceCarousel mouseTracking items={pictures} disableButtonsControls={true} />
+            <span className={cardSeenElementClassName}>Просмотренно</span>
+            <div className="photo__text-box">
+                <div className="photo__price-box">
+                    <p className="photo__text" id="photo__text">
+                        {price} ₽
+                    </p>
+                    <button 
+                        className={cardLikeButton} 
+                        type="button" 
+                        aria-label="кнопка лайк" 
+                        onClick={handleLikeClick}
+                    >     
+                    </button>
                 </div>
-            </li>
-        </Link>
+                <Link to={`/ad/${id}`} onClick={handleProceed}>
+                    <h2 className="photo__header">{title}</h2>
+                </Link>
+                <div className="photo__city-box">
+                    <span>Город</span>
+                    <span>{address}</span>
+                </div>
+            </div>
+        </li>
     )
 }
 

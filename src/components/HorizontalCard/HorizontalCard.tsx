@@ -24,31 +24,31 @@ const HorizontalCard: FC<HorizontalCardProps> = ({ pictures, cardLikeButton, han
       );
 
     return(
-        <Link to={`/ad/:${id}`} onClick={handleProceed}>
-            <li className="image__box"  key={id} onClick={handleClick}>
-                <AliceCarousel mouseTracking items={pictures} disableButtonsControls={true} />
-                <span className={cardSeenElementClassName}>Просмотренно</span>
-                <div className="image__text-box">
-                    <div className="image__price-box">
-                        <p className="image__text" id="image__text">
-                           {price} ₽
-                        </p>
-                        <button 
-                            className={cardLikeButton} 
-                            type="button" 
-                            aria-label="кнопка лайк" 
-                            onClick={handleLikeClick}
-                        >     
-                        </button>
-                    </div>
-                    <h2 className="image__header">{title}</h2>
-                    <div className="image__city-box">
-                        <span>Город</span>
-                        <span>{address}</span>
-                    </div>
+        <li className="image__box"  key={id} onClick={handleClick}>
+            <AliceCarousel mouseTracking items={pictures} disableButtonsControls={true} />
+            <span className={cardSeenElementClassName}>Просмотренно</span>
+            <div className="image__text-box">
+                <div className="image__price-box">
+                    <p className="image__text" id="image__text">
+                        {price} ₽
+                    </p>
+                    <button 
+                        className={cardLikeButton} 
+                        type="button" 
+                        aria-label="кнопка лайк" 
+                        onClick={handleLikeClick}
+                    >     
+                    </button>
                 </div>
-            </li> 
-        </Link>
+                <Link to={`/ad/${id}`} onClick={handleProceed}>
+                    <h2 className="image__header">{title}</h2>
+                </Link>
+                <div className="image__city-box">
+                    <span>Город</span>
+                    <span>{address}</span>
+                </div>
+            </div>
+        </li> 
     )
 }
 

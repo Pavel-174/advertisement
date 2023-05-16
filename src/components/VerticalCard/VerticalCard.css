@@ -7,7 +7,6 @@
     overflow: hidden;
     position: relative;
     box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.08);
-    cursor: pointer;
 }
 
 .photo__box:hover {
@@ -68,6 +67,8 @@
     letter-spacing: 0em;
     text-align: left;    
     padding: 0px 12px 10px 12px;
+    color: black;
+    text-decoration: none
 }
 
 .photo__city-box {
