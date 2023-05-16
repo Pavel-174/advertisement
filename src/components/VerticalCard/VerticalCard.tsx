@@ -2,13 +2,11 @@ import React, { FC } from "react";
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import "./VerticalCard.css";
-import { Link } from "react-router-dom";
 
 interface VerticalCardProps {
     pictures: JSX.Element[] | undefined;
     cardLikeButton: any;
     handleLikeClick: () => void;
-    id: number;
     address: string;
     title: string;
     price: number;
@@ -16,7 +14,7 @@ interface VerticalCardProps {
     handleClick: () => void;
 }
 
-const VerticalCard: FC<VerticalCardProps> = ({ pictures, cardLikeButton, handleLikeClick, id, address, title, price, seen, handleClick}) => {
+const VerticalCard: FC<VerticalCardProps> = ({ pictures, cardLikeButton, handleLikeClick, address, title, price, seen, handleClick}) => {
 
     const cardSeenElementClassName = (
         `photo__seen ${seen ? 'photo__seen_visible' : ''}`
@@ -24,7 +22,7 @@ const VerticalCard: FC<VerticalCardProps> = ({ pictures, cardLikeButton, handleL
 
     return(
         
-        <li className="photo__box" key={id} onClick={handleClick}>
+        <li className="photo__box" onClick={handleClick}>
             <AliceCarousel mouseTracking items={pictures} disableButtonsControls={true} />
             <span className={cardSeenElementClassName}>Просмотренно</span>
             <div className="photo__text-box">

@@ -2,13 +2,11 @@ import React, { FC } from "react";
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import "./HorizontalCard.css";
-import { Link } from "react-router-dom";
 
 interface HorizontalCardProps {
     pictures: JSX.Element[] | undefined;
     cardLikeButton: any;
     handleLikeClick: () => void;
-    id: number;
     address: string;
     title: string;
     price: number;
@@ -16,14 +14,14 @@ interface HorizontalCardProps {
     handleClick: () => void;
 }
 
-const HorizontalCard: FC<HorizontalCardProps> = ({ pictures, cardLikeButton, handleLikeClick, id, address, title, price, seen, handleClick }) => {
+const HorizontalCard: FC<HorizontalCardProps> = ({ pictures, cardLikeButton, handleLikeClick, address, title, price, seen, handleClick }) => {
 
     const cardSeenElementClassName = (
         `image__seen ${seen ? 'image__seen_visible' : ''}`
       );
 
     return(
-        <li className="image__box"  key={id} onClick={handleClick}>
+        <li className="image__box" onClick={handleClick}>
             <AliceCarousel mouseTracking items={pictures} disableButtonsControls={true} />
             <span className={cardSeenElementClassName}>Просмотренно</span>
             <div className="image__text-box">

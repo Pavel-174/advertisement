@@ -41,6 +41,7 @@ const CardList: FC<CardListProps> = ({items, onCardClick, handleProceed}) => {
                 <ul className={`photos__container ${!verticalCard ? 'photos__container_active' : ''}`}>  
                     {items.map(card => (
                         <Card 
+                            key={card.id}
                             verticalCard={verticalCard}     
                             id={card.id} 
                             address={card.address} 

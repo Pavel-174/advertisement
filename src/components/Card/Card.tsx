@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 interface CardProps {
   verticalCard: boolean;
-    id: number;
+    id: never;
     address: string;
     title: string;
     price: number;
@@ -25,32 +25,18 @@ const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen, onC
   const items = [...likedItems];
 
   const handleLikeClick = () => {
-    // setIsLiked(!isLiked);
-    // const saved: any = localStorage.getItem("isLiked");
-    // const initialValue = JSON.parse(saved);
-    // return initialValue
-    // localStorage.setItem("isLiked", JSON.stringify(isLiked));
     const likedItems: any = localStorage.getItem("isLiked");
-    console.log(likedItems);
     !isLiked ? addToList() : deleteFromList();
   }
 
   const addToList = () => {
-    console.log(likedItems, items, 'aye12');
-    // const items = [...likedItems];
-    console.log(likedItems, items, 'aye13');
     items.push(id);
-    console.log(items, 'aye14')
     items.includes(id) ? null :  setLikedItems(items);
     setIsLiked(true);
-    console.log(likedItems, 'aye88')
     localStorage.setItem("isLiked", JSON.stringify(items));
   }
   
   const deleteFromList = () => {
-    console.log(likedItems, 'aye1');
-    // const items = [...likedItems];
-    console.log(likedItems, 'aye2'); 
     const index = items.indexOf(id);
     index > -1 ? items.splice(index, 1) : null;
     isLiked ? setLikedItems(items) : null;
@@ -111,7 +97,6 @@ const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen, onC
                 pictures={pictures}
                 cardLikeButton={cardLikeButton}
                 handleLikeClick={handleLikeClick}
-                id={id}
                 address={address}
                 title={title}
                 price={price}
@@ -122,7 +107,6 @@ const Card: FC<CardProps> = ({verticalCard, id, address, title, price, seen, onC
                 pictures={pictures}
                 cardLikeButton={cardLikeButton}
                 handleLikeClick={handleLikeClick}
-                id={id}
                 address={address}
                 title={title}
                 price={price}

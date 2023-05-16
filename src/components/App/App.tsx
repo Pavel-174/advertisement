@@ -7,7 +7,7 @@ import { Routes, Route, useNavigate, generatePath } from 'react-router-dom';
 import Ad from '../Ad/Ad';
 
 export type Item = {
-  id: number;
+  id: never;
   about: string;
   address: string;
   price: number;
@@ -15,7 +15,7 @@ export type Item = {
   title: string;
 }
 
-const baseURL = "https://testguru.ru/frontend-test/api/v1/items?page=1";
+const baseURL = `https://testguru.ru/frontend-test/api/v1/items?size=20`;
 
 function App() {
 
@@ -32,7 +32,6 @@ function App() {
   React.useEffect(() => {
     axios.get(baseURL).then((response) => {
       setItems(response.data.items);
-      console.log(response.data.items)
     });
   }, []);
 
